@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+       xmlns:local="clr-namespace:TechieShell"
+       RouteHost="somostechies.com"
+       RouteScheme="app"
+       Route="TechieShell"
+       FlyoutHeaderBehavior="Fixed"
+       Title="TechieShell"
+       x:Class="TechieShell.AppShell">
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ShellForegroundColor" Value="White" />
+                <Setter Property="Shell.ShellTitleColor" Value="White" />
+                <Setter Property="Shell.ShellDisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.ShellUnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.ShellTabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ShellTabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.ShellTabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.ShellTabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <ContentView HeightRequest="32">
+                <ContentView.Padding>
+                    <Thickness Left="32"
+                           Top="16" />
+                </ContentView.Padding>
+                <Label Text="{Binding Text}"
+                   FontAttributes="Bold" />
+            </ContentView>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="300">
+            <Image Source="shellBackground.jpg"
+                   Aspect="AspectFill" 
+                   HeightRequest="300" 
+                   HorizontalOptions="FillAndExpand"/>
+            <Label Text="Techies" TextColor="White" 
+                   FontSize="48" HorizontalOptions="Center" 
+                   VerticalOptions="Center" HorizontalTextAlignment="Center" 
+                   VerticalTextAlignment="Center"/>
+        </Grid>
+    </Shell.FlyoutHeader>
+    
+    <!-- Your Pages -->
+    <ShellItem Title="Home" FlyoutIcon="home.png">
+        <ShellSection >
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </ShellSection>
+    </ShellItem>
+
+    <ShellItem Title="CollectionView" FlyoutIcon="list.png">
+        <ShellSection >
+            <ShellContent ContentTemplate="{DataTemplate local:CollectionPage}" />
+        </ShellSection>
+    </ShellItem>
+
+    <ShellItem Title="Carousel" FlyoutIcon="idea.png">
+        <ShellSection>
+            <ShellContent ContentTemplate="{DataTemplate local:CarouselPage}" />
+        </ShellSection>
+    </ShellItem>
+
+    <ShellItem Title="Home with Visual" FlyoutIcon="droid.png">
+        <ShellSection >
+            <ShellContent ContentTemplate="{DataTemplate local:VisualPage}" />
+        </ShellSection>
+    </ShellItem>
+    
+    <Shell.MenuItems>
+        <MenuItem Text="Take a Photo" Command="{Binding TakePhotoCommand}"/>
+    </Shell.MenuItems>
+
+</Shell>

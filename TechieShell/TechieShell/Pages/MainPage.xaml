@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TechieShell"
+             x:Class="TechieShell.MainPage"
+             Title="MainPage" BackgroundColor="LightGray"
+             Visual="Default">
+    
+<ScrollView>
+    <StackLayout>
+        <Frame Padding="10" Margin="20">
+            <StackLayout>
+                <Label Text="Yo soy un Titulo"
+                       FontSize="Large" TextColor="Purple"/>
+                <Entry Placeholder="UserName" TextColor="Black" PlaceholderColor="Blue"/>
+                <Entry Placeholder="Password" IsPassword="True" TextColor="Black" PlaceholderColor="Blue"/>
+                <Button Text="[ Login ]" 
+                        TextColor="White"
+                        BackgroundColor="DarkRed"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ScrollView>
+</ContentPage>

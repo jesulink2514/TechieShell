@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechieShell.CarouselPage">
+    <CarouselView ItemsSource="{Binding Posts}" ScrollToRequested="CarouselView_ScrollToRequested"
+                  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <CarouselView.ItemTemplate>
+            <DataTemplate>
+                <Grid VerticalOptions="CenterAndExpand">
+                    <Frame BackgroundColor="White" BorderColor="LightGray"
+                           HasShadow="True" Padding="0" Margin="20" VerticalOptions="Center">
+                        <StackLayout Spacing="10" VerticalOptions="Center">
+                            <Image Source="{Binding CoverUrl}" />
+                            <Label Text="{Binding Title}" FontSize="Large"
+                                   Margin="10" FontAttributes="Bold"/>
+                            <Label Text="{Binding Description}" 
+                               FontSize="Micro" Margin="10,0,10,10"/>
+                            <Button TextColor="White" Text="[ Read more ]"
+                                VerticalOptions="End"
+                                BackgroundColor="Purple"
+                                Margin="10" />
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </DataTemplate>
+        </CarouselView.ItemTemplate>
+        <CarouselView.ItemsLayout>
+            <GridItemsLayout Orientation="Horizontal" 
+                             SnapPointsType="MandatorySingle"
+                             SnapPointsAlignment="Center"/>
+        </CarouselView.ItemsLayout>
+        <CarouselView.EmptyView>
+            <StackLayout>
+                <Label Text="No Items" />
+            </StackLayout>
+        </CarouselView.EmptyView>
+    </CarouselView>
+</ContentPage>
